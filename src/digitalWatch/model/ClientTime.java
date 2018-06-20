@@ -1,5 +1,8 @@
 package digitalWatch.model;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.OutputStream;
@@ -7,10 +10,11 @@ import java.net.Socket;
 import java.time.LocalTime;
 
 
-public class ClientTime {
-        private Socket client = null;
-        private OutputStream out = null;
-        private ObjectInputStream in  = null;
+public class ClientTime{
+
+    private Socket client = null;
+    private OutputStream out = null;
+    private ObjectInputStream in  = null;
 
     public ClientTime(String host,int port) {
         try {
@@ -26,9 +30,11 @@ public class ClientTime {
         } catch (IOException e) {
             System.out.println("can't get streams");
         }
+
+
     }
 
-    public LocalTime getTime() {
+    public LocalTime reciveTime() {
         LocalTime time;
         //send request
         try {
@@ -41,7 +47,6 @@ public class ClientTime {
             try {
                 if (in != null) {
                     time = (LocalTime) in.readObject();
-                    System.out.println(time.toString());
                     break;
                 }
             } catch (IOException | ClassNotFoundException e) {
@@ -50,4 +55,5 @@ public class ClientTime {
         }
         return time;
     }
+
 }
