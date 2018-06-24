@@ -1,28 +1,29 @@
 package senderTime;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 import java.net.Socket;
+import java.net.URISyntaxException;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 public class ServerSoket extends Thread{
-    private Socket soket;
-    private int count;
     private ObjectOutputStream out;
     private InputStream in;
-    private LocalTime lastQuery;
+    private ArrayList<String> phrases;
 
-    public ServerSoket(Socket soket) {
-        this.soket = soket;
+    ServerSoket(Socket soket) {
         try {
             out = new ObjectOutputStream(soket.getOutputStream());
             in = soket.getInputStream();
         } catch (IOException e) {
             System.out.println("can't get out stream");
         }
-        count = 0;
+        //load phrases
+        phrases = getPhase();
         this.start();
     }
 
@@ -30,18 +31,42 @@ public class ServerSoket extends Thread{
         while(true) {
             try {
                 byte [] message= new byte[30];
-                int lenght;
-                if ((lenght = in.read(message)) >0){
-                    lastQuery = LocalTime.now();
-                    System.out.write(message,0,lenght);
-                    System.out.println();
-                    out.writeObject(LocalTime.now());
-                    break;
+                if(in.read(message)>0) {
+                    //get time
+                    if (Arrays.toString(message).equals("get time")) {
+                        System.out.println("get time");
+                        out.writeObject(LocalTime.now());
+                        break;
+                    }
+
+                    //get phrase
+                    if (Arrays.toString(message).equals("get phrase")) {
+                        System.out.println(" get phrase");
+                        Random random = new Random();
+                        int i = random.nextInt(phrases.size());
+                        out.writeObject(phrases.get(i));
+                        break;
+                    }
                 }
             } catch (IOException e) {
                 System.out.println("can't read message");
             }
         }
         System.out.println("clint missed");
+    }
+
+    private ArrayList<String> getPhase() {
+        try {
+            BufferedReader reader = new BufferedReader(
+                                    new FileReader(new File(getClass().getResource("phrases.txt").toURI())));
+            System.out.println(reader.readLine());
+            return (ArrayList<String>) reader.lines().collect(Collectors.toList());
+
+        } catch (FileNotFoundException e) {
+            System.out.println("file not found");
+        } catch (IOException | URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
