@@ -1,22 +1,20 @@
-package digitalWatch.model;
-
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+package client;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 import java.time.LocalTime;
 
 
-public class ClientTime{
+public class Client {
 
     private Socket client = null;
-    private OutputStream out = null;
+    private ObjectOutputStream out = null;
     private ObjectInputStream in  = null;
 
-    public ClientTime(String host,int port) {
+    public Client(String host, int port) {
         try {
             client = new Socket(host, port);
         } catch (IOException e) {
@@ -25,7 +23,7 @@ public class ClientTime{
         }
         //initialize stream of client
         try {
-            out = client.getOutputStream();
+            out = new ObjectOutputStream(client.getOutputStream());
             in = new ObjectInputStream(client.getInputStream());
         } catch (IOException e) {
             System.out.println("can't get streams");
@@ -34,11 +32,11 @@ public class ClientTime{
 
     }
 
-    public LocalTime reciveTime() {
+    public LocalTime receiveTime() {
         LocalTime time;
-        //send request
+        //send request time
         try {
-            out.write("get time".getBytes());
+            out.writeObject("get time");
         } catch (IOException e) {
             System.out.println("can't write into stream");
         }
@@ -50,10 +48,32 @@ public class ClientTime{
                     break;
                 }
             } catch (IOException | ClassNotFoundException e) {
-                e.printStackTrace();
+                System.out.println("can't receive time");
             }
         }
         return time;
+    }
+
+    public String receivePhrase() {
+        String phrase;
+        //send request phrase
+        try {
+            out.writeObject("get phrase");
+
+        } catch (IOException e) {
+            System.out.println("can't write into stream");
+        }
+        while (true) {
+            if (in != null) {
+                try {
+                    phrase = (String) in.readObject();
+                    break;
+                } catch (IOException | ClassNotFoundException e) {
+                    System.out.println("can't receive phrase");
+                }
+            }
+        }
+        return phrase;
     }
 
 }
