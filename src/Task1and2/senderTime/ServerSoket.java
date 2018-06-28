@@ -1,4 +1,4 @@
-package senderTime;
+package Task1and2.senderTime;
 
 import java.io.*;
 
@@ -21,7 +21,7 @@ public class ServerSoket extends Thread{
         } catch (IOException e) {
             System.out.println("can't get out stream");
         }
-        //load phrases
+        //load Task1and2.phrases
         phrases = getPhase();
         this.start();
     }
@@ -56,7 +56,7 @@ public class ServerSoket extends Thread{
     private ArrayList<String> getPhase() {
         try {
             BufferedReader reader = new BufferedReader(
-                                    new FileReader(new File(getClass().getResource("phrases.txt").toURI())));
+                                    new FileReader(new File(getClass().getResource("Task1and2.phrases.txt").toURI())));
             return (ArrayList<String>) reader.lines().collect(Collectors.toList());
 
         } catch (FileNotFoundException e) {

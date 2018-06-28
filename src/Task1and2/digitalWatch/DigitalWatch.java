@@ -1,4 +1,4 @@
-package digitalWatch;
+package Task1and2.digitalWatch;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

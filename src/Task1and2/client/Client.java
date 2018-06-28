@@ -1,9 +1,8 @@
-package client;
+package Task1and2.client;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.OutputStream;
 import java.net.Socket;
 import java.time.LocalTime;
 
@@ -21,7 +20,7 @@ public class Client {
             System.out.println("server didn't find");
             System.exit(-1);
         }
-        //initialize stream of client
+        //initialize stream of Task1and2.client
         try {
             out = new ObjectOutputStream(client.getOutputStream());
             in = new ObjectInputStream(client.getInputStream());

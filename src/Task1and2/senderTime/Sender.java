@@ -1,4 +1,4 @@
-package senderTime;
+package Task1and2.senderTime;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -17,9 +17,9 @@ public class Sender {
         while (true) {
             try {
                 new ServerSoket(server.accept());
-                System.out.println("client is connect");
+                System.out.println("Task1and2.client is connect");
             } catch (IOException e) {
-                System.out.println("cannot connecting with client");
+                System.out.println("cannot connecting with Task1and2.client");
             }
         }
     }

@@ -41,7 +41,7 @@ public class Sevrer implements MyConnectionListener {
                 try {
                     new MyConnection(serverSocket.accept(), this);
                 } catch (IOException e) {
-                    System.out.println("can't connect client");
+                    System.out.println("can't connect Task1and2.client");
                 }
             }
         } catch (IOException e) {
@@ -54,7 +54,7 @@ public class Sevrer implements MyConnectionListener {
     public synchronized void onConnect(MyConnection connection) {
         connections.add(connection);
         connection.setID(++LAST_ID);
-        System.out.println("client is connect");
+        System.out.println("Task1and2.client is connect");
     }
     //echo
     @Override
@@ -66,7 +66,7 @@ public class Sevrer implements MyConnectionListener {
     @Override
     public synchronized void onDisconnect(MyConnection connection) {
         connections.remove(connection);
-        System.out.println("client "+connection.getID()+" was disconnect");
+        System.out.println("Task1and2/client " +connection.getID()+" was disconnect");
     }
 
     @Override

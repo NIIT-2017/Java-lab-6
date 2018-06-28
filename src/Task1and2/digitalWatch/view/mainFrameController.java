@@ -1,7 +1,7 @@
-package digitalWatch.view;
+package Task1and2.digitalWatch.view;
 
 
-import client.Client;
+import Task1and2.client.Client;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
