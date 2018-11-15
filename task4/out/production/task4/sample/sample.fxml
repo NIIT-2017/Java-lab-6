@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" prefHeight="300.0" prefWidth="400.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="300.0" prefWidth="400.0">
+         <children>
+            <ComboBox fx:id="cbCurrency" layoutX="61.0" layoutY="61.0" prefHeight="27.0" prefWidth="100.0" />
+            <Label layoutX="250.0" layoutY="61.0" text="к  RUB">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="86.0" layoutY="33.0" text="Валюта:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="186.0" layoutY="142.0" text="≈">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="186.0" layoutY="210.0" text="≈">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfLeftUp" alignment="CENTER" layoutX="61.0" layoutY="141.0" prefHeight="20.0" prefWidth="100.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tfRightUp" alignment="CENTER" layoutX="226.0" layoutY="141.0" prefHeight="25.0" prefWidth="100.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tfLeftDown" alignment="CENTER" layoutX="61.0" layoutY="209.0" prefHeight="17.0" prefWidth="100.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="tfRightDown" alignment="CENTER" layoutX="226.0" layoutY="209.0" prefHeight="25.0" prefWidth="100.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextField>
+         </children>
+      </Pane>
+   </children>
+</GridPane>
