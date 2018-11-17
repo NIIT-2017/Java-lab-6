@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="gson-fire-1.8.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/gson-fire-1.8.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

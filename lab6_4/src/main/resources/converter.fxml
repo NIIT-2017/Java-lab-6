@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="353.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+   <children>
+      <VBox prefHeight="128.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lbl_UP" alignment="CENTER" prefHeight="17.0" prefWidth="601.0" text="Базовая валюта">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <HBox prefHeight="105.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="btn_RUB_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="РУБЛЬ">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_USD_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ДОЛЛАР">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_EUR_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЕВРО">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_XBT_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="БИТКОЙН">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_LTC_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЛАЙТКОИН">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_ETH_bas" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЭТЕР">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <VBox layoutY="225.0" prefHeight="128.0" prefWidth="600.0">
+         <children>
+            <HBox prefHeight="101.0" prefWidth="600.0">
+               <children>
+                  <Button fx:id="btn_RUB_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="РУБЛЬ">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_USD_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ДОЛЛАР">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_EUR_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЕВРО">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_XBT_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="БИТКОИН">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_LTC_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЛАЙТКОИН">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+                  <Button fx:id="btn_ETH_conv" mnemonicParsing="false" prefHeight="80.0" prefWidth="80.0" text="ЭТЕР">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Button>
+               </children>
+            </HBox>
+            <Label fx:id="lbl_DOWN" alignment="CENTER" prefHeight="35.0" prefWidth="600.0" text="Котируемая валюта">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutY="137.0" prefHeight="80.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="lbl_Cash" alignment="CENTER" prefHeight="83.0" prefWidth="600.0" text="Результат">
+               <font>
+                  <Font size="48.0" />
+               </font></Label>
+         </children>
+      </VBox>
+   </children>
+</Pane>

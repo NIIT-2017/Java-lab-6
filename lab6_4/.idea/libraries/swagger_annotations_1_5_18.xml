@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="swagger-annotations-1.5.18">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/main/java/swagger-annotations-1.5.18.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

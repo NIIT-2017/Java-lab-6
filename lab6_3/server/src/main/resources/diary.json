@@ -1,0 +1,47 @@
+[
+	{
+	"IDClient":1,
+	"AlertTime": "14:16",
+	"Message": "Полить цветы"
+	},
+	{	
+	"IDClient":2,
+	"AlertTime": "14:16",
+	"Message": "Выкинуть мусор"
+	},
+	{
+	"IDClient":3,
+	"AlertTime": "14:17",
+	"Message": "Сходить в ателье"
+	},
+	{
+	"IDClient":4,
+	"AlertTime": "14:17",
+	"Message": "Сходить в кино"
+	},
+	{
+	"IDClient":2,
+	"AlertTime": "14:17",
+	"Message": "Не проспать работу"
+	},
+	{
+	"IDClient":1,
+	"AlertTime": "14:18",
+	"Message": "Сходить к врачу"
+	},
+	{
+	"IDClient":2,
+	"AlertTime": "14:19",
+	"Message": "Погулять"
+	},
+	{
+	"IDClient":4,
+	"AlertTime": "14:20",
+	"Message": "Сходить куда-либо"
+	},
+	{
+	"IDClient":3,
+	"AlertTime": "14:20",
+	"Message": "Поиграть в шашки"
+	}
+]
