@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "time": 6,
+      "task": "Read an article;"
+    },
+    {
+      "time": 7,
+      "task": "Learn 10 new English words;"
+    },
+    {
+      "time": 8,
+      "task": "Make a cake;"
+    },
+    {
+      "time": 9,
+      "task": "Cleaning;"
+    },
+    {
+      "time": 10,
+      "task": "Have a dinner;"
+    },
+    {
+      "time": 12,
+      "task": "Walk with dog."
+    }
+  ]
+}

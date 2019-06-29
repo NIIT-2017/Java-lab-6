@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<GridPane alignment="center" hgap="10" prefHeight="318.0" prefWidth="288.0" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="151.0" minHeight="151.0" prefHeight="151.0" />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+   </rowConstraints>
+   <children>
+      <Label fx:id="userInfo" alignment="CENTER" contentDisplay="TOP" prefHeight="29.0" prefWidth="203.0" text="Enter your login">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="login" prefHeight="31.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="toDoList" editable="false" prefHeight="249.0" prefWidth="205.0" wrapText="true" GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextArea>
+      <Button mnemonicParsing="false" onAction="#request" prefHeight="25.0" prefWidth="205.0" text="Connect" textFill="#e11313" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</GridPane>

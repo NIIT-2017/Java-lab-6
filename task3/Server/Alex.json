@@ -1,0 +1,28 @@
+{
+  "tasks": [
+    {
+      "time": 5,
+      "task": "Wake up;"
+    },
+    {
+      "time": 6,
+      "task": "Breakfast;"
+    },
+    {
+      "time": 7,
+      "task": "Sport;"
+    },
+    {
+      "time": 8,
+      "task": "Write an article;"
+    },
+    {
+      "time": 9,
+      "task": "Walk;"
+    },
+    {
+      "time": 10,
+      "task": "Sleep."
+    }
+  ]
+}
