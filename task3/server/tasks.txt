@@ -1,0 +1,11 @@
+ID1-16:14:0-Call Peter about work!
+ID2-16:15:0-Congratulate Veronika happy birthday!
+ID3-16:16:0-Take Masha from home and go to the movies!
+ID2-16:17:0-Watch the webinar about JAVA!
+ID2-16:18:0-Turn on the TV to see the news.
+ID1-16:19:0-Call Pasha, make an appointment before work!
+ID3-1:38:0-Meet with Nikolai about the delivery of goods!
+ID3-10:10:0-Call Elvira ask about documents!
+ID1-10:30:0-Go to Vodokanal, pick up the contract!
+ID2-14:43:0-Meet Anna and have lunch!
+ID1-18:51:0-Go to the gym!!!
