@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" prefHeight="337.0" prefWidth="277.0" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="311.0" prefWidth="239.0">
+         <children>
+            <ComboBox fx:id="valuteFrom" layoutX="29.0" layoutY="14.0" prefWidth="150.0" />
+            <ComboBox fx:id="valuteTo" layoutX="29.0" layoutY="51.0" prefWidth="150.0" />
+            <Button layoutX="29.0" layoutY="93.0" mnemonicParsing="false" onAction="#exchange" text="Get" />
+            <Label fx:id="label" layoutX="29.0" layoutY="139.0" prefHeight="27.0" prefWidth="176.0" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
