@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="358.0" prefWidth="389.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Button layoutX="35.0" layoutY="248.0" mnemonicParsing="false" onAction="#request" text="Запрос" />
+            <Label fx:id="time1" layoutX="22.0" layoutY="43.0" prefHeight="136.0" prefWidth="266.0" text="Label" />
+         </children>
+      </Pane>
+   </children>
+</GridPane>
