@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" prefHeight="300.0" prefWidth="400.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <children>
+        <VBox prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: CRIMSON;">
+            <children>
+                <TextField fx:id="tfTime" alignment="CENTER" editable="false" prefHeight="82.0" prefWidth="400.0" promptText="Time">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="tfDate" alignment="CENTER" editable="false" promptText="Date">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button fx:id="btnStart" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGetTime" prefHeight="20.0" prefWidth="120.0" style="-fx-background-color: inherit; -fx-border-color: WHITE; -fx-border-radius: 0; -fx-border-width: 2;" text="Get time" textAlignment="CENTER" textFill="WHITE">
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="140.0" right="140.0" top="25.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+</GridPane>
