@@ -68,4 +68,34 @@ public class Client {
             e.printStackTrace();
         }
     }
+
+
+    public void closeClient(){
+        //System.out.println("The user pressed the button Exit, we are closing the programm");
+        //sending exit to server
+        //out.println("exit");
+        //creating new thread to divide renovating of form from getting messages
+        Thread t = new Thread (new Runnable(){
+            public void run(){
+                try {
+                    System.out.println("The user pressed the button Exit, we are closing the programm");
+                    //sending exit to server
+                    out.println("exit");
+                    System.out.println("Sending exit signal to server");
+                    in.close();
+                    out.close();
+                    socket.close();
+                    System.out.println("Socket is closed: " + socket.isClosed());
+                    System.exit(0);
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+            }
+        });
+        t.start();
+    }
+
+
 }
+

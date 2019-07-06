@@ -14,7 +14,7 @@
     <children>
         <VBox prefHeight="300.0" prefWidth="400.0" style="-fx-background-color: CRIMSON;">
             <children>
-                <TextArea fx:id="taPhrase" editable="false" prefHeight="200.0" prefWidth="355.0" promptText="Здесь будет умная фраза" wrapText="true">
+                <TextArea fx:id="taPhrase" editable="false" prefHeight="150.0" prefWidth="355.0" promptText="Здесь будет умная фраза" wrapText="true">
                     <VBox.margin>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </VBox.margin>
@@ -22,7 +22,7 @@
                         <Font size="14.0" />
                     </font>
                 </TextArea>
-                <Button fx:id="btnStart" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGetPhrase" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-border-color: WHITE; -fx-border-width: 2;" text="Получить афоризм" textAlignment="CENTER" textFill="WHITE">
+                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onClickGetPhrase" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-border-color: WHITE; -fx-border-width: 2;" text="Получить афоризм" textAlignment="CENTER" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
@@ -30,6 +30,14 @@
                         <Insets bottom="20.0" left="100.0" right="100.0" top="5.0" />
                     </VBox.margin>
                 </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="110.0" layoutY="205.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: inherit; -fx-border-color: WHITE; -fx-border-width: 2;" text="Выйти" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="100.0" right="100.0" top="5.0" />
+               </VBox.margin>
+            </Button>
             </children>
         </VBox>
     </children>

@@ -51,8 +51,18 @@ public class Controller {
 
 
     @FXML
-    public void onClickStart(){
+    public void onClickStart() {
         btnStart.setDisable(true);
         myClient.setConnectionClient("127.0.0.1");
+    }
+
+    @FXML
+    public void onClickExit() {
+        Thread t = new Thread(new Runnable() {
+            public void run() {
+                myClient.closeClient();
+            }
+        });
+        t.start();
     }
 }

@@ -34,6 +34,10 @@
                     <VBox.margin>
                         <Insets top="20.0" />
                     </VBox.margin></Button>
+            <Button fx:id="btnStart1" layoutX="201.0" layoutY="561.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="36.0" prefWidth="119.0" style="-fx-background-color: DARKBLUE; -fx-border-color: WHITE; -fx-border-width: 2;" text="Exit" textFill="WHITE">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin></Button>
             </children>
         </VBox>
     </children>

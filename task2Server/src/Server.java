@@ -6,7 +6,10 @@ import java.util.ArrayList;
 public class Server {
     private ArrayList<String> phrasesList;
     private int port = 1234;
-    ServerSocket server;
+    private ServerSocket server;
+    private InputStreamReader inputStreamReaderServ;
+    private BufferedReader readerServ;
+    private PrintWriter writerServ;
 
     public Server(String nameOfFile){
         //reading file with phrases and creating arraylist with phrases
@@ -14,6 +17,9 @@ public class Server {
         BufferedReader breader = null; //buffered stream for reading phrases from the file
         String tmpString;
         try {
+            //creating server socket
+            server = new ServerSocket(port);
+            System.out.println("Сервер создан");
             File file = new File(nameOfFile);
             breader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF8"));
             while ((tmpString = breader.readLine()) != null) {
@@ -29,24 +35,31 @@ public class Server {
 
     public void goServer(){
         try {
-            server = new ServerSocket(port);
-            System.out.println("Сервер создан");
-            //go to the endless loop to wait connections with clients
+            Socket client = server.accept();
+            System.out.println("Клиент подключился");
+            String input, output;
+            //creating streams for client
+            inputStreamReaderServ = new InputStreamReader(client.getInputStream());
+            readerServ = new BufferedReader(inputStreamReaderServ);
+            writerServ = new PrintWriter(client.getOutputStream(), true);
+            //go to the endless loop to wait connections with client
             while (true) {
-                Socket client = server.accept();
-                PrintWriter writer = new PrintWriter(client.getOutputStream());
+                input = readerServ.readLine();
+                if (input.equals("exit")) {
+                    break;
+                }
                 //getting random phrase from the list
                 int rand = (int) (Math.random() * phrasesList.size());
                 String phrase = phrasesList.get(rand);
                 //sending phrase to the client
-                writer.println(phrase);
-                writer.close();
-                client.close();
-                //System.out.println(phrase + " это фраза у сервера");
+                writerServ.println(phrase);
+                }
+            readerServ.close();
+            writerServ.close();
+            client.close();
             }
-        }
         catch (IOException e) {
-            System.out.println("Ошибка связывания с портом " + port);
+            e.printStackTrace();
             System.exit(-2);
         }
         finally {
