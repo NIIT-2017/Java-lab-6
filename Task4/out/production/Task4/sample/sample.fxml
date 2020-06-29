@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@pic.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="192.0" layoutY="80.0" prefHeight="61.0" prefWidth="378.0" text="Последний зарегистрированный кот с пятном под носом: " textAlignment="CENTER" textFill="#ab963e" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <VBox alignment="TOP_RIGHT" layoutX="225.0" layoutY="182.0" prefHeight="150.0" prefWidth="150.0" spacing="2.0">
+         <children>
+            <Label text="ИМЯ: " textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="ВЛАДЕЛЕЦ: " textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="ДАТА РЕГИСТРАЦИИ: " textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="ВРЕМЯ: " textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+      </VBox>
+      <VBox layoutX="381.0" layoutY="182.0" prefHeight="150.0" prefWidth="150.0" spacing="2.0">
+         <padding>
+            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+         </padding>
+         <children>
+            <Label fx:id="lblName" prefHeight="17.0" prefWidth="165.0" textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblOwner" prefHeight="17.0" prefWidth="165.0" textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" prefHeight="17.0" prefWidth="165.0" textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTime" prefHeight="17.0" prefWidth="165.0" textFill="#ab963e">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</Pane>

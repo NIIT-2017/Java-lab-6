@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@wisdom.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnConnect" layoutX="323.0" layoutY="280.0" mnemonicParsing="false" onAction="#connect" prefHeight="41.0" prefWidth="188.0" style="-fx-background-radius: 20;" text="Спросить мудреца" wrapText="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="wisdom" alignment="CENTER" layoutX="191.0" layoutY="78.0" prefHeight="122.0" prefWidth="316.0" textAlignment="CENTER" textFill="#e89110" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
