@@ -1,0 +1,24 @@
+.root{
+      -fx-font: bold italic 15pt "LucidaBrightDemiBold";
+      -fx-background-image: url("2.jpg");
+}
+
+.text-field{
+       -fx-font: bold italic 15pt "LucidaBrightDemiBold";
+       -fx-padding: 6 6 6 6;
+       -fx-background-color: derive(#2e2e2e, 130%);
+       -fx-text-fill: blue;
+}
+
+.button{
+      -fx-border-color: rgba(250, 250, 250, 1.80);
+      -fx-border-radius: 8;
+      -fx-background-color: derive(#2e2e2e, 130%);
+      -fx-text-fill: blue;
+}
+
+.label{
+       -fx-font: bold italic 15pt "LucidaBrightDemiBold";
+       -fx-background-color: derive(#2e2e2e, 130%);
+       -fx-text-fill: blue;
+}

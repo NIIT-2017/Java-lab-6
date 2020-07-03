@@ -1,0 +1,53 @@
+[
+  {
+    "id":"1" ,
+    "mapTimeMesToClient":[
+      {
+        "time":"14:05",
+        "message":"Good day for smile!"
+      },
+      {
+        "time":"14:06",
+        "message":"Yes?"
+      },
+      {
+        "time":"14:07",
+        "message":"Yes!"
+      }
+    ]
+  },
+  {
+    "id":"2" ,
+    "mapTimeMesToClient":[
+      {
+        "time":"19:00",
+        "message":"Good evening for coffee and dreams!"
+      },
+      {
+        "time":"19:01",
+        "message":"Yes?"
+      },
+      {
+        "time":"19:02",
+        "message":"Yes!"
+      }
+    ]
+  },
+  {
+    "id":"3" ,
+    "mapTimeMesToClient":[
+      {
+        "time":"10:00",
+        "message":"Good morning for actions!"
+      },
+      {
+        "time":"10:01",
+        "message":"Yes?"
+      },
+      {
+        "time":"10:02",
+        "message":"Yes!"
+      }
+    ]
+  }
+]
