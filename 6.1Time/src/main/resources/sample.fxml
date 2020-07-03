@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox alignment="CENTER" prefHeight="650.0" prefWidth="750.0" spacing="10.0">
+         <children>
+            <TextField fx:id="tfTime" alignment="CENTER" prefHeight="50.0" prefWidth="300.0">
+               <VBox.margin>
+                  <Insets left="125.0" right="125.0" />
+               </VBox.margin></TextField>
+            <TextField fx:id="tfDate" alignment="CENTER" prefHeight="50.0" prefWidth="269.0">
+               <VBox.margin>
+                  <Insets left="125.0" right="125.0" />
+               </VBox.margin></TextField>
+            <VBox alignment="BOTTOM_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="103.0" prefWidth="300.0" spacing="5.0">
+               <children>
+                  <Button fx:id="btnGet" mnemonicParsing="false" onAction="#getTimeDate" prefHeight="30.0" prefWidth="170.0" text="What time is it now?" />
+                  <Button fx:id="btnStop" mnemonicParsing="false" onAction="#stop" prefHeight="30.0" prefWidth="170.0" text="Stop" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="100.0" right="100.0" top="30.0" />
+         </padding>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <padding>
+      <Insets left="50.0" />
+   </padding>
+</Pane>
