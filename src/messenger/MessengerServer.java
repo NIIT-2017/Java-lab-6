@@ -10,12 +10,16 @@ import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class MessengerServer extends Thread {
+    static volatile ConcurrentHashMap<String, MessengerServer> clientsMap = new ConcurrentHashMap();
     static private ArrayList<Message> clientMessages = new ArrayList<>();
     private Socket socket;
     private PrintWriter outgoingMessage;
     private BufferedReader incomingMessage;
+    private String clientId;
 
     public MessengerServer(Socket socket) throws IOException {
         this.socket = socket;
@@ -43,41 +47,6 @@ public class MessengerServer extends Thread {
         }
     }
 
-    public void run() {
-        try {
-            System.out.println("Waiting for incoming Message...");
-            String id = incomingMessage.readLine();
-            System.out.println("I get " + id);
-            if (id == null) {
-                System.out.println("Connection is closed!");
-            } else {
-                while (true) {
-                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-                    String actualTime = dateFormat.format(new Date());
-
-                    for (Message msg : clientMessages) {
-                        if (msg.getClientId().equals(id)) {
-                            if (msg.getTime().equals(actualTime)) {
-                                outgoingMessage.write(msg.getMsgText());
-                                outgoingMessage.write("\n");
-                                outgoingMessage.flush();
-                            }
-                        }
-                    }
-                    Thread.sleep(40000);
-                }
-            }
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                System.err.println("Socket isn`t closed!");
-            }
-        }
-    }
-
     static public void readMessages() {
         String stringOfId;
         JSONArray messages;
@@ -95,6 +64,11 @@ public class MessengerServer extends Thread {
             message.setClientId((String) mesJSON.get("id"));
             message.setMsgText((String) mesJSON.get("mes"));
             message.setTime((String) mesJSON.get("time"));
+            if(mesJSON.has("isLast") && (boolean) mesJSON.get("isLast")){
+                message.setLast(true);
+            }else {
+                message.setLast(false);
+            }
             clientMessages.add(message);
         }
     }
@@ -102,6 +76,31 @@ public class MessengerServer extends Thread {
     public static void main(String[] args) throws IOException {
         resourcesToFile();
         readMessages();
+        Thread checkingMessage = new Thread (new Runnable() {
+            public void run() {
+                System.out.println("This is side thread!");
+                while (true) {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+                    String actualTime = dateFormat.format(new Date());
+                    System.out.println("Checking messages at " + actualTime);
+                    for (Message msg : clientMessages) {
+                        if (msg.getTime().equals(actualTime) && clientsMap.containsKey(msg.getClientId())) {
+                            MessengerServer messengerServer  = clientsMap.get(msg.getClientId());
+                            if (!Objects.isNull(messengerServer)){
+                                messengerServer.sendMessage(msg);
+                            }
+                        }
+                    }
+                    try {
+                        Thread.sleep(60000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        checkingMessage.start();
+
         try (ServerSocket serverSocket = new ServerSocket(1003)) {
             while (true) {
                 System.out.println("The multithread server is started!");
@@ -114,6 +113,56 @@ public class MessengerServer extends Thread {
                     socket.close();
                 }
             }
+        }
+    }
+
+    public void run() {
+        try {
+            System.out.println("Waiting for incoming Message...");
+            String id = incomingMessage.readLine();
+            System.out.println("Client connected with ID: " + id);
+            if (id == null) {
+                System.out.println("Connection is closed!");
+            } else {
+                clientId = id;
+                if (clientsMap.containsKey(id)){
+                    MessengerServer oldClient = clientsMap.get(id);
+                    if(!Objects.isNull(oldClient)){
+                        oldClient.closeSocket();
+                    }
+                }
+                clientsMap.put(id, this);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void closeSocket(){
+        try {
+            socket.close();
+            outgoingMessage.close();
+            incomingMessage.close();
+        } catch (IOException e) {
+            System.err.println("Socket isn`t closed!");
+        }
+
+    }
+
+    synchronized public void sendMessage(Message message) {
+        if (socket.isConnected()) {
+            System.out.println("Send message: " + message.getMsgText() + "to client id: " + clientId);
+            outgoingMessage.write(message.getMsgText());
+            outgoingMessage.write("\n");
+            outgoingMessage.flush();
+            if(message.isLast()){
+                closeSocket();
+                if (clientsMap.containsKey(clientId))
+                    clientsMap.remove(clientId);
+            }
+        } else {
+            if (clientsMap.containsKey(clientId))
+                clientsMap.remove(clientId);
         }
     }
 }

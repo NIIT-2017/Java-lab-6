@@ -4,6 +4,7 @@ public class Message {
     private String clientId;
     private String msgText;
     private String time;
+    private boolean last=false;
 
     public String getClientId() {
         return clientId;
@@ -29,4 +30,11 @@ public class Message {
         this.time = time;
     }
 
+    public boolean isLast() {
+        return last;
+    }
+
+    public void setLast(boolean last) {
+        this.last = last;
+    }
 }

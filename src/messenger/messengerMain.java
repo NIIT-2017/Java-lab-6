@@ -16,7 +16,7 @@ public class messengerMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("messanger.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("messenger.fxml"));
         primaryStage.setTitle("Messenger");
         primaryStage.setScene(new Scene(root));
         primaryStage.setResizable(false);

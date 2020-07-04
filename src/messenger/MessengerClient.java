@@ -5,49 +5,27 @@ import java.net.NoRouteToHostException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.util.function.Consumer;
 
-public class MessengerClient {
+public class MessengerClient extends Thread {
     private Socket clientSocket;
-    private BufferedReader reader;
     private BufferedReader incomingMessage;
     private BufferedWriter outcomingMessage;
     private int id;
-    private String time;
-    private ArrayList<String> times;
-    private ArrayList<String> messages;
-    private String newMessage;
+    private  String newMessage;
 
     public MessengerClient (int id) {
         this.id = id;
     }
-
-    public int getId (int id) {
-        return id;
+    public void setId (int id){
+        this.id = id;
     }
-
-    public ArrayList<String> getTimes () {
-        return times;
-    }
-
-    public void setTime (String time) {
-        this.time=time;
-    }
-
-    public void setNewMessage (String newMessage) {
-        this.newMessage = newMessage;
-    }
-
-    public void addTime (String time) {
-        times.add(time);
-    }
-
-    public void addNewMessageToMessages (String newMessage) {
-        messages.add(newMessage);
-    }
-
 
     public void contactToServer () throws IOException {
+        contactToServer(null);
+    }
+
+    public void contactToServer (Consumer<String> callback) throws IOException {
         try {
             System.out.println("The client is started!");
             clientSocket = new Socket("localhost", 1003);
@@ -58,8 +36,17 @@ public class MessengerClient {
             outcomingMessage.flush();
             System.out.println("The client " + id + " is connected!");
             incomingMessage = new BufferedReader(new InputStreamReader(clientSocket.getInputStream(), StandardCharsets.UTF_8));
-            newMessage = incomingMessage.readLine();
-            System.out.println("We received " + newMessage);
+            while (true) {
+                newMessage = incomingMessage.readLine();
+                if (newMessage != null){
+                    System.out.println("We received " + newMessage);
+                    if (callback != null){
+                        callback.accept(newMessage);
+                    }
+                } else {
+                    break;
+                }
+            }
         } catch (UnknownHostException e) {
             System.out.println("The host isn`t found!");
         } catch (NoRouteToHostException e) {
@@ -67,13 +54,13 @@ public class MessengerClient {
         } catch (IOException e) {
             System.out.println("The connection request is rejected!");
         }
-        incomingMessage.close();
-        clientSocket.close();
+        if(incomingMessage != null){
+            incomingMessage.close();
+        }
+        if (clientSocket != null){
+            clientSocket.close();
+        }
         System.out.println("The client is disconnected!");
-    }
-
-    public String getNewMessage() {
-        return newMessage;
     }
 
     public static void main(String[] args) throws IOException {
