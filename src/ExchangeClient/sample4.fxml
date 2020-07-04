@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="651.0" style="-fx-border-color: #20B2AA;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ExchangeClient.Controller">
+   <children>
+      <ImageView fx:id="picture" fitHeight="376.0" fitWidth="665.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Balaton.jpg" />
+         </image>
+      </ImageView>
+      <HBox layoutX="32.0" layoutY="30.0" prefHeight="259.0" prefWidth="600.0" style="-fx-border-color: #20B2AA;">
+         <children>
+            <Label fx:id="display" alignment="CENTER" contentDisplay="CENTER" prefHeight="257.0" prefWidth="600.0" style="-fx-border-color: #20B2AA;" text="Glad to see you! Please, press &quot;Show exchange rate!&quot;" textAlignment="CENTER">
+               <font>
+                  <Font name="System Italic" size="41.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#6bdfee" height="139.605" radius="95.24625" width="243.38" />
+               </effect>
+               <textFill>
+                  <RadialGradient centerX="0.4277777777777779" centerY="0.45238095238095233" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="#2139ff" offset="0.8492317415175574" />
+                        <Stop color="#86dbeb" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+         <effect>
+            <InnerShadow choke="0.38" color="#8ae6ff" height="104.02" radius="78.8775" width="213.49" />
+         </effect>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="137.0" layoutY="286.0" prefHeight="93.0" prefWidth="390.0">
+         <children>
+            <Button fx:id="show" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickShow" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: #20B2AA;" text="Show exchange rate!">
+               <effect>
+                  <InnerShadow color="#84fffd" height="50.0" radius="20.75" width="35.0" />
+               </effect>
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5333333333333333" centerY="0.35238095238095235" radius="0.5">
+                     <stops>
+                        <Stop color="#7dbeff" />
+                        <Stop color="#1effec" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+            <Button fx:id="off" alignment="CENTER" contentDisplay="CENTER" layoutX="80.0" layoutY="29.0" mnemonicParsing="false" onAction="#clickOff" prefHeight="30.0" prefWidth="147.0" style="-fx-background-color: #20B2AA;" text="OFF">
+               <effect>
+                  <InnerShadow color="#84fffd" height="50.0" radius="20.75" width="35.0" />
+               </effect>
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#7dc1ff" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+   <effect>
+      <InnerShadow blurType="ONE_PASS_BOX" choke="0.56" color="#87dbff" height="141.09" radius="59.2975" width="98.1" />
+   </effect>
+</Pane>

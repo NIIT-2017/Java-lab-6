@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ExchangeClient">
+    <output-path>$PROJECT_DIR$/out/artifacts/ExchangeClient</output-path>
+    <root id="archive" name="Java-lab-6.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/src/Manifest6/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Java-lab-6" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/commons-io/commons-io/2.6/commons-io-2.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codeartisans/org.json/20161124/org.json-20161124.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/jsoup-1.13.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
