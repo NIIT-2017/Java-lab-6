@@ -1,5 +1,6 @@
 package srvs;
 
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 
 import java.io.BufferedReader;
@@ -18,7 +19,7 @@ public abstract class IOconnection {
     }
 
     public void doLog(String log) {
-        taLog.appendText(log + "\n");
+        Platform.runLater(() -> taLog.appendText(log + "\n"));
     }
     public void serveClient(Socket client) throws IOException{
         try {

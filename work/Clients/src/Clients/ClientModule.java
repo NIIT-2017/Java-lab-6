@@ -1,5 +1,6 @@
 package Clients;
 
+import javafx.application.Platform;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -45,10 +46,11 @@ public abstract class ClientModule {
     }
 
     public void printLog(String log) {
-        taLogs.appendText(log + "\n");
+        Platform.runLater(() -> taLogs.appendText(log + "\n"));
+
     }
     public void printResp(String response) {
-        taResp.setText(response);
+        Platform.runLater(() -> taResp.setText(response));
     }
     public void workWith(Socket server) throws IOException {
         try {
@@ -77,15 +79,19 @@ public abstract class ClientModule {
     public void listen() {
         Thread listener = new Thread(() -> {
             String input = "";
-            while (!input.equalsIgnoreCase("exit")) {
-                printResp(input);
-                try {
-                    input = in.readLine();
-                } catch (IOException ex) {
-                    printLog("input reading failed");
-                    break;
+            try {
+                while (!input.equalsIgnoreCase("exit")) {
+                    printResp(input);
+                    try {
+                        input = in.readLine();
+                    } catch (IOException ex) {
+                        printLog("input reading failed");
+                        break;
+                    }
+                    printLog("Server response : " + input);
                 }
-                printLog("Server response : " + input);
+            } catch (NullPointerException ex) {
+                printLog("Server connection lost");
             }
         });
         listener.setDaemon(true);

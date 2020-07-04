@@ -159,12 +159,16 @@ public class Controller implements Initializable {
         }
         return port;
     }
+    private void runClient(Client client) {
+        if (client.isConnected())
+            client.start();
+    }
 
     @FXML
     void OnClick_btnCon_timeCl() {
         timeClient = Client.getInstance(tfHost_timeCl.getText(),
                 whichPort(1201, tfPort_timeCl, taLogs_timeCl), new TimeClient(taResp_timeCl, taLogs_timeCl));
-        timeClient.start();
+        runClient(timeClient);
 
     }
     @FXML
@@ -180,7 +184,7 @@ public class Controller implements Initializable {
     void OnClick_btnCon_aphCl() {
         aphClient = Client.getInstance(tfHost_aphCl.getText(),
                 whichPort(1202, tfPort_aphCl, taLogs_aphCl), new AphorismClient(taResp_aphCl, taLogs_aphCl));
-        aphClient.start();
+        runClient(aphClient);
     }
     @FXML
     void OnCLick_btnDisCon_aphCl() {
@@ -195,11 +199,14 @@ public class Controller implements Initializable {
     void OnClick_btnCon_notCl() {
         notClient = Client.getInstance(tfHost_notCl.getText(),
                 whichPort(1203, tfPort_notCl, taLogs_notCl), new NoticeModule(taResp_notCl, taLogs_notCl, tfReq_notCl));
-        data.add(notClient);
-        notClient.start();
-        if (notClient.isAlive()) {
-            listeners.getSelectionModel().select(notClient);
+        if (notClient.isConnected()){
+            data.add(notClient);
+            notClient.start();
+            if (notClient.isAlive()) {
+                listeners.getSelectionModel().select(notClient);
+            }
         }
+
     }
     @FXML
     void OnCLick_btnDisCon_notCl() {
@@ -217,7 +224,7 @@ public class Controller implements Initializable {
 
         infoClient = Client.getInstance(tfHost_infoCl.getText(),
                 whichPort(1204, tfPort_infoCl, taLogs_infoCl), new InfoClient(taResp_infoCl, taLogs_infoCl, tfReq_infoCl));
-        infoClient.start();
+        runClient(infoClient);
     }
     @FXML
     void OnCLick_btnDisCon_infoCl() {
