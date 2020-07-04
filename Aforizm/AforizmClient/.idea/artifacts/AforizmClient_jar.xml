@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="AforizmClient:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/AforizmClient_jar</output-path>
+    <root id="archive" name="AforizmClient.jar">
+      <element id="module-output" name="AforizmClient" />
+    </root>
+  </artifact>
+</component>
