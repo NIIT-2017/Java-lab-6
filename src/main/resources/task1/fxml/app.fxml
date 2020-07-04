@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import task1.client.ui.DigitalClock?>
+
+<?import javafx.scene.control.Button?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="task1.client.ui.Controller"
+            prefHeight="400.0" prefWidth="600.0">
+    <DigitalClock layoutY="100" layoutX="100" height="50" width="100" fx:id="digitalClock"/>
+    <Button layoutY="200" layoutX="100" text="Get date" onAction="#click" fx:id="button"/>
+</AnchorPane>
