@@ -30,11 +30,11 @@
                         <TableColumn fx:id="tcMessage" prefWidth="341.0" text="message" />
                     </columns>
                 </TableView>
-                <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onClickStart" prefHeight="36.0" prefWidth="119.0" style="-fx-background-color: Black; -fx-border-color: WHITE; -fx-border-width: 2;" text="Start" textFill="WHITE">
+                <Button fx:id="btnStart" mnemonicParsing="false" onAction="#onClickStart" prefHeight="36.0" prefWidth="119.0" text="Start">
                     <VBox.margin>
                         <Insets top="20.0" />
                     </VBox.margin></Button>
-                <Button fx:id="btnStart1" layoutX="201.0" layoutY="561.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="36.0" prefWidth="119.0" style="-fx-background-color: BLACK; -fx-border-color: WHITE; -fx-border-width: 2;" text="Exit" textFill="WHITE">
+                <Button fx:id="btnStart1" alignment="CENTER" layoutX="201.0" layoutY="561.0" mnemonicParsing="false" onAction="#onClickExit" prefHeight="36.0" prefWidth="119.0" text="Exit">
                     <VBox.margin>
                         <Insets bottom="10.0" top="10.0" />
                     </VBox.margin></Button>
